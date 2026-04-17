@@ -1,59 +1,51 @@
 # People Analytics — Satisfação e Engajamento de Colaboradores
 
+![Status](https://img.shields.io/badge/status-concluído-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python)
+![Plotly](https://img.shields.io/badge/Plotly-interativo-blueviolet?logo=plotly)
+![Dados](https://img.shields.io/badge/dados-Kaggle%20HR%20Dataset-lightgrey)
+
 Análise dos fatores que impactam a satisfação, produtividade e engajamento de colaboradores. O projeto traduz dados de RH em insights acionáveis: o que a empresa pode fazer antes de perder o colaborador.
 
-Complementa o projeto de Turnover — se o primeiro responde "quem vai sair?", este responde "o que faz alguém querer ficar?".
+> *"Satisfação não é um problema de salário — o fator financeiro tem correlação próxima de zero com o engajamento real."*
 
-## Estrutura do Projeto
+---
 
-```
-people-analytics-satisfacao/
-│
-├── notebooks/
-│   ├── 01_eda_perfil_colaboradores.ipynb   # Quem são os colaboradores?
-│   ├── 02_satisfacao_engajamento.ipynb     # O que impacta a satisfação?
-│   └── 03_insights_acoes.ipynb             # O que a empresa pode fazer?
-│
-├── data/
-│   └── raw/                               # Dataset (baixar do Kaggle)
-│
-├── imagens/                               # Visualizações para LinkedIn/portfólio
-├── outputs/
-├── requirements.txt
-└── README.md
-```
+## Motivação
+
+Esse projeto é o segundo de uma série de People Analytics desenvolvida como portfólio. Se o projeto de Turnover respondia **"quem vai sair?"**, este responde **"o que faz alguém querer ficar?"**
+
+As duas perguntas parecem opostas, mas formam a mesma visão: retenção não começa quando o colaborador pede demissão — começa muito antes, nos sinais que os dados já capturam.
+
+---
 
 ## Notebooks
 
-### 01 — Perfil dos Colaboradores
-Análise exploratória do headcount: distribuição por departamento, faixa etária, tempo de casa, nível de cargo e distribuição salarial.
+| # | Notebook | Descrição | Status |
+|---|---|---|---|
+| 01 | `01_eda_perfil_colaboradores.ipynb` | Composição do headcount: departamento, cargo, faixa etária, salário e tempo de casa | ✅ |
+| 02 | `02_satisfacao_engajamento.ipynb` | Fatores associados à satisfação: salário, feedback, produtividade, cargo, departamento e tempo de casa | ✅ |
+| 03 | `03_insights_acoes.ipynb` | Segmentação de risco e recomendações concretas para o RH | ✅ |
 
-**Principais achados:**
-- 200 colaboradores em 5 departamentos; cargo mais comum é Manager (40 pessoas)
-- Idade média de 34,6 anos; tempo médio de casa de 10 anos
-- Salário médio de USD 76.619 — com variação significativa por cargo
+---
 
-### 02 — Satisfação e Engajamento
-Investigação dos fatores que mais se associam à satisfação: departamento, cargo, salário, feedback, produtividade e tempo de casa.
+## Principais Achados
 
-**Principais achados:**
-- Satisfação média de 49,9% — quase metade dos colaboradores abaixo do ponto neutro
-- 63 colaboradores (31,5%) com satisfação baixa (abaixo de 33%)
-- Correlação satisfação × salário: -0,018 — praticamente zero
-- Correlação satisfação × feedback: 0,008 — também insignificante
-- Marketing é o departamento menos satisfeito (46%); IT é o mais satisfeito (54,3%)
+| Achado | Valor |
+|---|---|
+| Satisfação média geral | **49,9%** — quase metade abaixo do ponto neutro |
+| Colaboradores com satisfação baixa (< 33%) | **63 pessoas — 31,5%** do headcount |
+| Correlação satisfação × salário | **-0,018** — praticamente zero |
+| Correlação satisfação × feedback | **0,008** — também insignificante |
+| Departamento menos satisfeito | **Marketing — 46%** |
+| Departamento mais satisfeito | **IT — 54,3%** |
+| Colaboradores em risco alto | **29 pessoas — 14,5%** (satisfação baixa + produtividade baixa) |
 
-### 03 — Insights e Ações
-Segmentação de risco e tradução dos achados em recomendações concretas para o RH.
+> O problema não está no que a empresa paga. Está em algo que o salário não compra — e que os dados ainda não conseguem nomear sozinhos.
 
-**Principais achados:**
-- 29 colaboradores (14,5%) em risco alto: satisfação baixa e produtividade baixa simultaneamente
-- Marketing e Sales concentram os maiores percentuais de risco alto (19%)
-- 52 colaboradores (26%) recebem feedback abaixo de 2.0 — sinal de desmotivação silenciosa
+---
 
 ## Conclusões
-
-A análise revelou que **satisfação não é um problema de salário** — o fator financeiro tem correlação próxima de zero com o engajamento dos colaboradores.
 
 | Fator | Sinal de Alerta | Recomendação |
 |---|---|---|
@@ -63,9 +55,9 @@ A análise revelou que **satisfação não é um problema de salário** — o fa
 | Diferença entre departamentos | 8pp entre Marketing e IT | Investigar práticas dos departamentos mais satisfeitos |
 | Tempo de casa | Risco de estagnação após 5 anos | Trilha de carreira clara nos anos 3–5 |
 
-**Risco imediato:** 29 colaboradores (14,5%) combinam satisfação baixa com produtividade baixa. Esse grupo provavelmente não será percebido até virar turnover — e o custo de substituição é muito maior que o custo de agir agora.
+**Risco imediato:** 29 colaboradores combinam satisfação baixa com produtividade baixa. Esse grupo provavelmente não será percebido até virar turnover — e o custo de substituição é muito maior que o custo de agir agora.
 
-**Complemento ao projeto de Turnover:** se o projeto anterior respondia "quem vai sair?" (ROC-AUC 0,83), este responde "o que faz alguém querer ficar?" — as duas perguntas juntas formam uma visão completa de retenção.
+---
 
 ## Como Reproduzir
 
@@ -85,11 +77,15 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
+---
+
 ## Dataset
 
-**Employee Productivity and Satisfaction HR Data**
-- Fonte: [Kaggle](https://www.kaggle.com/datasets/adityaab1407/employee-productivity-and-satisfaction-hr-data)
-- Variável central: satisfação do colaborador (escala 1–5)
+| Base | Fonte | Variáveis |
+|---|---|---|
+| Employee Productivity and Satisfaction HR Data | [Kaggle](https://www.kaggle.com/datasets/adityaab1407/employee-productivity-and-satisfaction-hr-data) | 200 colaboradores, 5 departamentos — variável central: `Satisfaction Rate (%)` |
+
+---
 
 ## Stack
 
@@ -100,8 +96,9 @@ jupyter notebook
 | Plotly | Visualizações interativas |
 | SciPy | Correlações e testes estatísticos |
 
+---
+
 ## Autor
 
-**Rodrigo Presida**
-Estudante de Ciência de Dados — último semestre
+**Rodrigo Cruz dos Santos**
 [LinkedIn](https://www.linkedin.com/in/rodrigopresidati) · [GitHub](https://github.com/RodrigoPresida)
